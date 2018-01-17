@@ -1,12 +1,11 @@
 {
-  "name": "pyff-vue-sample",
-  "version": "0.0.1",
-  "description": "ipinyou",
-  "author": "js <js@ipinyou.com>",
-  "license": "(WTFPL OR MIT)",
+  "name": "{{ name }}",
+  "version": "0.0.0",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
+  "license": "{{ license }}",
   "scripts": {
     "preinit": "echo init project,please wait ...",
-    "init": "npm init && npm i",
     "check": "node build/check-versions.js",
     "dev": "node build/dev-server.js",
     "style": "node build/build-css.js",
