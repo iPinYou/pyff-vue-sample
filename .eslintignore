@@ -1,0 +1,6 @@
+build/*.js
+config/*.js
+src/components/*.js
+src/common/*.js
+src/mock/*.js
+src/store/*.js
