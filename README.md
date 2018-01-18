@@ -85,18 +85,21 @@ Modern browsers and IE 10+。
 ### 本地配置  
 
 ``` bash
+
+# global installation of vue-cli tools
+$ npm install -g vue-cli
+  
+# download the project template and name it
+$ vue init hanweiqiang2005/pyff-vue-sample ‘项目名’
+  
+# enter the project
+$ cd ‘项目名’
+  
 # install dependencies
-npm run init
-
-# serve with hot reload at localhost:3000
-npm run dev
-
-# build for production with hot reload at localhost:8080
-npm run start
-
-# build for production with minification
-npm run build
-
+$ npm install
+  
+# serve with hot reload at localhost:3000  
+$ npm run dev
 ```
 <a name="使用Api接口"></a> 
 
