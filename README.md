@@ -1,71 +1,63 @@
-![mahua](src/assets/pylogo.jpg)
+![mahua](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1514286148704&di=617c729a0d97555852e0c440305abf46&imgtype=0&src=http%3A%2F%2Fwww.meipo360.com%2FUpload%2Fimage%2F2015%2F0403%2F20150403103311235799.png)
 
 ## 目录  
 * [项目背景](#项目背景) 
 * [浏览器支持](#浏览器支持)  
 * [项目的基础结构](#项目的基础结构)  
 * [项目的特色应用](#项目的特色应用) 
-* [项目的部署运行](#项目的部署运行)  
-  * [获取代码](#获取代码)  
+* [项目的部署运行](#项目的部署运行) 
   * [本地配置](#本地配置)  
   * [使用Api接口](#使用Api接口)  
-       * [接口介绍](#接口介绍)  
-       * [使用样例](#使用样例)  
- * [路由配置](#路由配置)
+* [路由配置](#路由配置)
 * [项目的发展方向](#项目的发展方向)  
 * [相关文档链接](#相关文档链接)  
-* [有问题反馈](#有问题反馈) 
+* [主要维护者](#主要维护者) 
 * [版权许可证](#版权许可证)  
 
 <a name="项目背景"></a>  
 
-##项目背景
+## 项目背景
 
 北京品友互动信息技术有限公司（简称品友互动），创立于2008年，是中国领先的基于大数据技术的人工智能平台，是最早将程序化购买引入中国的企业之一。
 
-pyff-vue的设计初衷是品友互动给大家提供一个更方便的vue前端框架。
+pyff-vue-sample的设计初衷是品友互动给大家提供一个除vue-cli上传统模板外的自定义vue项目模板。
 
-本项目在Element UI基础上构建，在路由、自动化、缓存组件上有了很大的突破。另外我们的组件文档给前端爱好者提供了更丰富更实用的功能。
+pyff-vue-sample在路由、自动化、缓存组件上有了很大的突破，高度适用各种独立的前端项目。
 
 <a name="浏览器支持"></a>  
 
-##浏览器支持
+## 浏览器支持
 
 Modern browsers and IE 10+。
 
-[![testling badge](src/assets/ever.png)](https://ci.testling.com/substack/quote-stream)
+[![testling badge](https://ci.testling.com/substack/ever.png)](https://ci.testling.com/substack/quote-stream)
 
 
 <a name="项目的基础结构"></a>  
 
-##项目的基础结构
+## 项目的基础结构
 
 * build - webpack config files
 * config - webpack config files
-* dist - build
-* document - 组件文档
 * src -your app
     * api
     * assets
-    * common
-    * components - your vue components
     * mock
-    * styles
+    * store
     * views - your pages
-    * vuex
     * App.vue
     * main.js - main file
     * routes.js
-* static - static assets
+    * routes-temple.js
 
 <a name="项目的特色应用"></a> 
 
-##项目的特色应用
+## 项目的特色应用
 ``` bash
 
 1. 简洁轻量
     
-    pyff-vue核心部分仅几兆,目录结构一目了然
+    pyff-vue-sample核心部分仅几兆,目录结构一目了然
 
 2. 构建快速
     
@@ -86,19 +78,11 @@ Modern browsers and IE 10+。
 ```
 <a name="项目的部署运行"></a>  
 
-##项目的部署运行
-
-<a name="获取代码"></a> 
-
-###获取代码
-    
-* GitLab:[http://gitlab.ipinyou.com/js/pyff-vue/tree/master](http://gitlab.ipinyou.com/js/pyff-vue/tree/master)
-
-* clone或手动下载:[http://gitlab.ipinyou.com/js/pyff-vue](http://gitlab.ipinyou.com/js/pyff-vue)
+## 项目的部署运行
 
 <a name="本地配置"></a> 
 
-###本地配置  
+### 本地配置  
 
 ``` bash
 # install dependencies
@@ -116,48 +100,44 @@ npm run build
 ```
 <a name="使用Api接口"></a> 
 
-###使用Api接口
+### 使用Api接口
 
-<a name="接口介绍"></a> 
-
-####接口介绍
 
 ``` bash
-在src/api/api.js中定义接口
+以登录接口为例。在src/api/api.js中定义接口
+  
+const base = '';
+  
+export const requestLogin = params => axios.post(`${base}/login`, params);  
+  
+通过axios向api接口发送get或者post请求。
+  
+在src/views/Login.vue中引入api.js抛出的方法并使用
+  
+import { requestLogin } from 'api';
+  
 
-pyff-vue项目以品友互动后台为接口， 以ampBase为别名连接http://amptest.ipinyou.com/api
+
 ```
-<a name="使用样例"></a> 
 
-####使用样例 
-
-``` bash
-export const login = params => amp.post(`${ampBase}/login`, params);
-
-export const logout = params => amp.get(`${ampBase}/logout`, { params });
-
-```
-<a name="路由配置"></a> 
-
-###路由配置
+### 路由配置
 
 ``` bash
 在src/routes-temple.js中定义路由，项目会自动在routes.js中配置好相关路径信息
 
-path: '/report',
-component: Home,
-name: 'reportCenter',
-menuName: '报表中心',
-iconCls: 'fa fa-book fa-fw', // 图标样式class
-children: [
-  { path: '/report', component: ReportReport, name: 'report', menuName: '报表中心' },
-]
+ {
+    path: '/',
+    component: Helloworld,
+    name: 'hello',
+    iconCls: 'py-icon-message', // 图标样式class
+    children: []
+  }
   
 ```
 
 <a name="项目的发展方向"></a> 
 
-##项目的发展方向
+## 项目的发展方向
 
 * demo展示时，提供在线运行，使用Jsfiddle
 
@@ -173,7 +153,7 @@ children: [
 
 <a name="相关文档链接"></a> 
 
-##相关文档链接
+## 相关文档链接
 
 * [pyff-vue之vuex——pyff-vue开源项目使用技术详解（其一）](https://vuex.vuejs.org/zh-cn/)
 
@@ -189,13 +169,22 @@ children: [
 
 * [pyff-vue之deepmerge——pyff-vue开源项目使用技术详解（其七）](http://npm.taobao.org/package/deepmerge)
 
-<a name="有问题反馈"></a> 
+<a name="主要维护者"></a> 
 
-##有问题反馈
-在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
+## 主要维护者
+在使用中有任何问题，欢迎反馈给我们
 
-* 邮件(weiqiang.han@ipinyou.com)
-* 微信号: wxid_ej04ts6pl0ka22
+* [hanweiqiang]()  
+
+* [weiyong]()  
+
+* [wangweiyi]()  
+
+* [guangguangcheng]()  
+
+* [liuqi]()  
+
+* [zhangpeng]()
 
 <a name="版权许可证"></a> 
 
