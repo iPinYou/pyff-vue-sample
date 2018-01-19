@@ -22,6 +22,7 @@ const routes = [
   },
   {
     path: '/',
+    redirect: '/hello',
     component: Home,
     name: 'hello',
     menuName: '进入Pyff',
@@ -32,12 +33,14 @@ const routes = [
   },
   {
     path: '/report',
+    redirect: 'reportlist',
     component: Home,
     name: 'reportCenter',
     menuName: '报表中心',
     iconCls: 'fa fa-book fa-fw', // 图标样式class
     children: [
-      { path: '/report', component: ReportReport, name: 'report', menuName: '报表中心' },
+      { path: '/reportlist', component: ReportReport, name: 'report', menuName: '报表中心' },
+      { path: '/userlist', component: Unopened, name: 'userlist', menuName: '用户列表' },
     ],
   },
   {
