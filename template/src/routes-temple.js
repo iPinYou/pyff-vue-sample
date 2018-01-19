@@ -9,10 +9,33 @@ const routes = [
     hidden: true,
   },
   {
+    path: '/home',
+    component: Home,
+    name: 'home',
+    hidden: true,
+  },
+  {
     path: '/',
-    component: HelloworldHello,
+    redirect: '/hello',
+    component: Home,
     name: 'hello',
+    menuName: '进入Pyff',
     iconCls: 'py-icon-message', // 图标样式class
+    children: [
+      { path: '/hello', component: HelloworldHello, name: 'helloWorld', menuName: '欢迎使用' },
+    ],
+  },
+  {
+    path: '/report',
+    redirect: 'reportlist',
+    component: Home,
+    name: 'reportCenter',
+    menuName: '报表中心',
+    iconCls: 'fa fa-book fa-fw', // 图标样式class
+    children: [
+      { path: '/reportlist', component: ReportReport, name: 'report', menuName: '报表中心' },
+      { path: '/userlist', component: Unopened, name: 'userlist', menuName: '用户列表' },
+    ],
   },
   {
     path: '/404',

@@ -4,6 +4,8 @@ const base = '';
 
 export const requestLogin = params => axios.post(`${base}/login`, params).then(res => res.data);
 
+export const requestLogout = params => amp.get(`${base}/logout`, { params });
+
 export const getUserList = params => axios.get(`${base}/user/list`, { params });
 
 export const getUserListPage = params => axios.get(`${base}/user/listpage`, { params });

@@ -5,6 +5,7 @@ import Login from './views/Login.vue';
 import Main from './views/Main.vue';
 import Unopened from './views/Unopened.vue';
 import HelloworldHello from './views/helloworld/hello.vue';
+import ReportReport from './views/report/report.vue';
 
 const routes = [
   {
@@ -14,10 +15,30 @@ const routes = [
     hidden: true,
   },
   {
+    path: '/home',
+    component: Home,
+    name: 'home',
+    hidden: true,
+  },
+  {
     path: '/',
-    component: HelloworldHello,
+    component: Home,
     name: 'hello',
+    menuName: '进入Pyff',
     iconCls: 'py-icon-message', // 图标样式class
+    children: [
+      { path: '/hello', component: HelloworldHello, name: 'helloWorld', menuName: '欢迎使用' },
+    ],
+  },
+  {
+    path: '/report',
+    component: Home,
+    name: 'reportCenter',
+    menuName: '报表中心',
+    iconCls: 'fa fa-book fa-fw', // 图标样式class
+    children: [
+      { path: '/report', component: ReportReport, name: 'report', menuName: '报表中心' },
+    ],
   },
   {
     path: '/404',

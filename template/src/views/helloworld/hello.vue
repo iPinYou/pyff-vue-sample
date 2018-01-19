@@ -1,11 +1,10 @@
 <template>
-  <h1>欢迎使用pyff-vue</h1>
+  <div style="position:absolute;left:48%;top:50%">
+    <span style="font-size: 34px">欢迎使用Pyff-vue</span>
+  </div>
 </template>
 <style scoped>
-  /**
-    自定义样式
-   */
-  h1{text-align: center}
+
 </style>
 
 <script>
