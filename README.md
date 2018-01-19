@@ -20,9 +20,7 @@
 
 北京品友互动信息技术有限公司（简称品友互动），创立于2008年，是中国领先的基于大数据技术的人工智能平台，是最早将程序化购买引入中国的企业之一。
 
-pyff-vue-sample的设计初衷是品友互动给大家提供一个除vue-cli上传统模板外的自定义vue项目模板。
-
-pyff-vue-sample在路由、自动化、缓存组件上有了很大的突破，高度适用各种独立的前端项目。
+Pyff-vue-sample是我们自定义的一套前端项目模板，满足前端项目可能需要的各种条件，Webpack，Babel，ESLint，Webpack--loaders，Vue-router，Vuex等都已经在模板中配置。
 
 <a name="浏览器支持"></a>  
 
@@ -87,13 +85,14 @@ Modern browsers and IE 10+。
 ``` bash
 
 # global installation of vue-cli tools
+# requirement：node > 6.x npm > 3.x  git
 $ npm install -g vue-cli
   
 # download the project template and name it
-$ vue init hanweiqiang2005/pyff-vue-sample ‘项目名’
+$ vue init iPinYou/pyff-vue-sample my-project
   
 # enter the project
-$ cd ‘项目名’
+$ cd my-project
   
 # install dependencies
 $ npm install
@@ -142,17 +141,13 @@ import { requestLogin } from 'api';
 
 ## 项目的发展方向
 
-* demo展示时，提供在线运行，使用Jsfiddle
-
-* demo展示时，完善安装过程，hello world等
-
 * 项目在构建的时候，能展示进度
-
-* highlight.js中的样式引用不到的问题
 
 * vue文件引用css源代码不能按postcss的解析，考虑配置问题
 
-* eslint配置
+* 进一步简化安装程序  
+
+* 根据业务场景继续封装组件，提升开发速度
 
 <a name="相关文档链接"></a> 
 
@@ -175,7 +170,6 @@ import { requestLogin } from 'api';
 <a name="主要维护者"></a> 
 
 ## 主要维护者
-在使用中有任何问题，欢迎反馈给我们
 
 * [hanweiqiang]()  
 
